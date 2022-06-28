@@ -116,12 +116,12 @@ function yearBalanceSheet(spreadSheet, stock) {
   financialReport(spreadSheet, url, "年資產負債表", false);
 }
 
-function quarterCacheFlow(spreadSheet, stock) {
+function quarterCashFlow(spreadSheet, stock) {
   var url = moneydj + '/z/zc/zc30.djhtm?b=Q&a=' + stock;
   financialReport(spreadSheet, url, "季現金流量表", false);
 }
 
-function yearCacheFlow(spreadSheet, stock) {
+function yearCashFlow(spreadSheet, stock) {
   var url = moneydj + '/z/zc/zc30.djhtm?b=Y&a=' + stock;
   financialReport(spreadSheet, url, "年現金流量表", false);
 }
@@ -133,8 +133,8 @@ function onMyOpen(e) {
   yearIncomeStatement(spreadSheet, stock);
   quarterBalanceSheet(spreadSheet, stock);
   yearBalanceSheet(spreadSheet, stock);
-  quarterCacheFlow(spreadSheet, stock);
-  yearCacheFlow(spreadSheet, stock);
+  quarterCashFlow(spreadSheet, stock);
+  yearCashFlow(spreadSheet, stock);
   setCurrentCell(spreadSheet);
 }
 
@@ -148,8 +148,8 @@ function onMyEdit(e) {
     yearIncomeStatement(spreadSheet, e.value);
     quarterBalanceSheet(spreadSheet, e.value);
     yearBalanceSheet(spreadSheet, e.value);
-    quarterCacheFlow(spreadSheet, e.value);
-    yearCacheFlow(spreadSheet, e.value);
+    quarterCashFlow(spreadSheet, e.value);
+    yearCashFlow(spreadSheet, e.value);
     setCurrentCell(spreadSheet);
     var ui = SpreadsheetApp.getUi();
     // ui.alert("active sheet="+spreadSheet.getActiveSheet().getName());
